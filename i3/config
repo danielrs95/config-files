@@ -4,6 +4,8 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+set $i3barstatuscommand /media/tera/config-files/i3/i3-status
+
 # Screens config
 exec xrandr --setprovideroutputsource modesetting NVIDIA-0
 
@@ -70,6 +72,7 @@ bindsym XF86AudioMute exec --no-startup-id /usr/bin/pulseaudio-ctl mute
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id /usr/bin/playerctl next
 bindsym $mod+XF86AudioLowerVolume exec --no-startup-id /usr/bin/playerctl previous
 bindsym $mod+XF86AudioMute exec --no-startup-id /usr/bin/playerctl play-pause
+bindsym $mod+Ctrl+m exec --no-startup-id pactl set-source-mute 1 toggle
 
 ################################################################################################
 
@@ -204,9 +207,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
+assign [class="Code"] $ws2
+assign [class="discord"] $ws3
+assign [class="Slack"] $ws4
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!!!!!!!!!! WORKSPACES MODIFY !!!!!!!!!!
@@ -216,11 +219,13 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 workspace $ws1 output HDMI-0
 workspace $ws2 output HDMI-0
 workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
 
 # WS 4-6 on second display
-workspace $ws4 output DP-1
-workspace $ws5 output DP-1
 workspace $ws6 output DP-1
+workspace $ws7 output DP-1
+workspace $ws8 output DP-1
 
 
 
@@ -323,7 +328,7 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
+exec --no-startup-id copyq
 exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
@@ -367,33 +372,38 @@ set_from_resource $term_color15    color15
 # !!!!!!!!!!!!! DEFAULT BAR !!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-# bar {
-# 	i3bar_command i3bar
-# 	status_command i3status
-# 	position bottom
+bar {
+	# i3bar_command i3bar
+	# status_command i3status -c /media/tera/config-files/i3/i3status.conf
+	status_command /media/tera/config-files/i3/i3-status.sh
+	position bottom
+  # font pango:DejaVu Sans Mono, FontAwesome 10
+  font xft:URWGothic-Book 10
+  # font pango:DejaVu Sans Mono 9
+  # font pango:Cascadia Code 9
 
-# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-# #	tray_output primary
-# #	tray_output eDP1
+  ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+	tray_output primary
+  #	tray_output eDP1
 
-# 	bindsym button4 nop
-# 	bindsym button5 nop
-# #   font xft:URWGothic-Book 11
-# 	strip_workspace_numbers yes
+	bindsym button4 nop
+	bindsym button5 nop
+  # font xft:URWGothic-Book 11
+	strip_workspace_numbers yes
 
-#     colors {
-#         background #222D31
-#         statusline #F9FAF9
-#         separator  #454947
+    # colors {
+    #     background #222D31
+    #     statusline #F9FAF9
+    #     separator  #454947
 
-# #                      border  backgr. text
-#         focused_workspace  #F9FAF9 #16a085 #292F34
-#         active_workspace   #595B5B #353836 #FDF6E3
-#         inactive_workspace #595B5B #222D31 #EEE8D5
-#         binding_mode       #16a085 #2C2C2C #F9FAF9
-#         urgent_workspace   #16a085 #FDF6E3 #E5201D
-#     }
-# }
+    #     #                      border  backgr. text
+    #     focused_workspace  #F9FAF9 #16a085 #292F34
+    #     active_workspace   #595B5B #353836 #FDF6E3
+    #     inactive_workspace #595B5B #222D31 #EEE8D5
+    #     binding_mode       #16a085 #2C2C2C #F9FAF9
+    #     urgent_workspace   #16a085 #FDF6E3 #E5201D
+    # }
+}
 
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -435,7 +445,7 @@ set_from_resource $term_color15    color15
 # hide/unhide i3status bar
 # bindsym $mod+m bar mode toggle
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh --blocks
+# exec_always --no-startup-id ~/.config/polybar/launch.sh --blocks
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border

@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# i3-status (a wrapper around i3status)
+# https://github.com/EllaTheCat/dopamine-2020/blob/master/i3scripts/i3-status
+
+# i3status -c /media/tera/config-files/i3/i3status.conf | while :
+i3status -c /media/tera/config-files/i3/i3status.conf "$@" | while :
+do
+    read -r line
+    # compositor=$(pgrep -c -f '(compton|picom)')
+    # wcam=$(lsof /dev/video0 | awk '{print $1}' | grep -v COMMAND | uniq | sed 's/skypeforl*/skype/g')
+    # wcam=${wcam:-'idle'}
+    # wmic=$(pactl list sources | grep -A 7 alsa_input.usb-Alcor_Micro__Corp._TeckNet-02.mono-fallback | grep -c 'Mute: no')
+    wmic=$(pactl list sources | grep -A 7 alsa_input.usb-BLUE_MICROPHONE_Blue_Snowball_797_2020_12_21_48142-00.mono-fallback | grep -c 'Mute: no')
+    # eval "$(xdotool getmouselocation --shell)"
+    # ccmt='cc offline'
+    # if [ "$(ping -c 1 -W 1 192.168.1.114 | grep -c "1 received")" -ne 0 ]; then
+    #     ccmt="cc $(ssh cheesecake /opt/vc/bin/vcgencmd measure_temp)"
+    # fi
+    # # Use the (truncated) UUID to obtain the device.
+    # titan=$(df -h | grep f9fd1893)
+    # orion=$(df -h | grep 9a2b3d26)
+    # kaiju=$(df -h | grep 94bd806f)
+    # titan=$(sudo /usr/sbin/hddtemp "${titan:0:8}" | awk '{print $3}')
+    # orion=$(sudo /usr/sbin/hddtemp "${orion:0:8}" | awk '{print $3}')
+    # kaiju=$(sudo /usr/sbin/hddtemp "${kaiju:0:8}" | awk '{print $3}')
+    # pactl list sink-inputs | grep 'Sink Input'| tail -1 | \
+    #     sed 's/Sink Input \#//g' > /dev/shm/"$USER"/i3/app-pulse-id
+    # api=$(cat /dev/shm/"$USER"/i3/app-pulse-id)
+    # # BIOS order.
+    # cpu0=$(sensors | grep fan1 | awk '{print $2}') # CPU_FAN  120mm rear
+    # sys1=$(sensors | grep fan3 | awk '{print $2}') # SYS_FAN1 120mm disks
+    # sys2=$(sensors | grep fan5 | awk '{print $2}') # SYS_FAN2 80mm  cooler
+    # echo "| ($X $Y) | api ${api} | compton ${compositor} | ${ccmt} | cam ${wcam} | mic ${wmic} | ${cpu0} ${sys1} ${sys2} | ${kaiju} ${orion} ${titan} | ${line}" || exit 1
+    echo " mic ${wmic} | ${line} " || exit 1
+done
+
+#
+# Done.
+#

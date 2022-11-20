@@ -1,0 +1,18 @@
+/media/tera/config-files/nvim/..
+  autoload
+  ★ lua
+    ★ daniel
+      ★ core
+      ★ plugins
+        ★ lsp
+           ★ mason.lua
+         ★ comment.lua
+         ★ lualine.lua
+         ★ nvim-cmp.lua
+         ★ nvim-tree.lua
+         ★ telescope.lua
+       ★ plugins-setup.lua
+  ★ plugin
+   ★ init.lua
+   ★ old-init-vim.vim
+   ★ old-plugins-configs.vim
