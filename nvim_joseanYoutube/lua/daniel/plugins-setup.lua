@@ -33,7 +33,7 @@ return packer.startup(function(use)
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-	-- use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
+	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
 	use("folke/tokyonight.nvim")
 
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
@@ -89,7 +89,8 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
 		end,
 	})
 

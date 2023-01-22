@@ -38,22 +38,22 @@ bindsym $mod+n border normal
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font xft:URWGothic-Book 11
-font pango:DejaVu Sans Mono, FontAwesome 11
-font xft:URWGothic-Book 11
-# font pango:monospace 8
+# font pango:DejaVu Sans Mono, FontAwesome 11
+# font xft:URWGothic-Book 11
+font pango:monospace 8
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-# bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+x kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym $mod+d exec --no-startup-id dmenu_recency
 
 # launch categorized menu
@@ -68,29 +68,20 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 #  exec --no-startup-id start-pulseaudio-x11
 #  exec --no-startup-id pa-applet
 # Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id /usr/bin/pulseaudio-ctl up
-# bindsym XF86AudioLowerVolume exec --no-startup-id /usr/bin/pulseaudio-ctl down
-# bindsym XF86AudioMute exec --no-startup-id /usr/bin/pulseaudio-ctl mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id /usr/bin/pulseaudio-ctl up
+bindsym XF86AudioLowerVolume exec --no-startup-id /usr/bin/pulseaudio-ctl down
+bindsym XF86AudioMute exec --no-startup-id /usr/bin/pulseaudio-ctl mute
 
- bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id /usr/bin/playerctl next
- bindsym $mod+XF86AudioLowerVolume exec --no-startup-id /usr/bin/playerctl previous
- bindsym $mod+XF86AudioMute exec --no-startup-id /usr/bin/playerctl play-pause
-# bindsym $mod+Ctrl+m exec --no-startup-id pactl set-source-mute 1 toggle
-
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym  $mod+Ctrl+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id /usr/bin/playerctl next
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id /usr/bin/playerctl previous
+bindsym $mod+XF86AudioMute exec --no-startup-id /usr/bin/playerctl play-pause
+bindsym $mod+Ctrl+m exec --no-startup-id pactl set-source-mute 1 toggle
 
 ################################################################################################
 
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
-
-focus_follows_mouse yes
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -222,30 +213,29 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 assign [class="Code"] $ws2
 assign [class="discord"] $ws3
 assign [class="Slack"] $ws4
-assign [class="Alacritty"] $ws2
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!!!!!!!!!! WORKSPACES MODIFY !!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 # Workspaces 1-3 on main display
-workspace $ws1 output HDMI-0
-workspace $ws2 output HDMI-0
-workspace $ws3 output HDMI-0
-workspace $ws4 output HDMI-0
-workspace $ws5 output HDMI-0
+# workspace $ws1 output HDMI-0
+# workspace $ws2 output HDMI-0
+# workspace $ws3 output HDMI-0
+# workspace $ws4 output HDMI-0
+# workspace $ws5 output HDMI-0
 
 # WS 4-6 on second display
-workspace $ws6 output DP-1-1
-workspace $ws7 output DP-1-1
-workspace $ws8 output DP-1-1
+# workspace $ws6 output DP-1
+# workspace $ws7 output DP-1
+# workspace $ws8 output DP-1
 
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!!!!!!!! KEYBOARD LAYOUT !!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # Change layout us to es with win+space
-exec --no-startup-id "setxkbmap -model pc105 -layout us,latam -variant ,deadtilde -option grp:win_space_toggle"
+# exec --no-startup-id "setxkbmap -model pc105 -layout us,latam -variant ,deadtilde -option grp:win_space_toggle"
 
 
 # Open specific applications in floating mode
@@ -298,7 +288,7 @@ mode "$mode_system" {
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id reboot, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
@@ -331,18 +321,17 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id i3lock-fancy
+# bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec --no-startup-id lxpolkit
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 #exec --no-startup-id manjaro-hello
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 # exec --no-startup-id xfce4-power-manager
-exec --no-startup-id copyq
-exec --no-startup-id blueman-applet
-# sbxkb Keyboard
+# exec --no-startup-id pamac-tray
+# exec --no-startup-id copyq
+# exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
@@ -389,7 +378,10 @@ bar {
 	# i3bar_command i3bar
 	status_command /media/tera/config-files/i3/i3-status.sh
 	position bottom
+  # font pango:DejaVu Sans Mono, FontAwesome 10
   font xft:URWGothic-Book 10
+  # font pango:DejaVu Sans Mono 9
+  # font pango:Cascadia Code 9
 
   ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 	tray_output primary
@@ -397,8 +389,76 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
+  # font xft:URWGothic-Book 11
 	strip_workspace_numbers yes
+
+    # colors {
+    #     background #222D31
+    #     statusline #F9FAF9
+    #     separator  #454947
+
+    #     #                      border  backgr. text
+    #     focused_workspace  #F9FAF9 #16a085 #292F34
+    #     active_workspace   #595B5B #353836 #FDF6E3
+    #     inactive_workspace #595B5B #222D31 #EEE8D5
+    #     binding_mode       #16a085 #2C2C2C #F9FAF9
+    #     urgent_workspace   #16a085 #FDF6E3 #E5201D
+    # }
 }
+
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!! PERSONAL BAR !!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# bar {
+# 	# i3bar_command i3bar
+#   # font pango:FontAwesome 10
+#   font pango:DejaVu Sans Mono, FontAwesome 10
+#   # font pango:DejaVu Sans Mono, FontAwesome5Free, FontAwesome5Brands 15
+
+#   # status_command i3status
+# 	position bottom
+
+# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# 	tray_output primary
+# 	# tray_output HDMI-1-0
+
+# 	bindsym button4 nop
+# 	bindsym button5 nop
+# #   font xft:URWGothic-Book 12
+# 	strip_workspace_numbers yes
+
+#   colors {
+#     background #272821
+#     statusline #f44336
+#     # separator  #454947
+
+#     # #                      border  backgr. text
+#     focused_workspace  #F9FAF9 #16a085 #292F34
+#     active_workspace   #595B5B #353836 #FDF6E3
+#     inactive_workspace #595B5B #222D31 #EEE8D5
+#     binding_mode       #16a085 #2C2C2C #F9FAF9
+#     urgent_workspace   #16a085 #FDF6E3 #E5201D
+#   }
+# }
+
+# hide/unhide i3status bar
+# bindsym $mod+m bar mode toggle
+
+# exec_always --no-startup-id ~/.config/polybar/launch.sh --blocks
+
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+  # client.focused        #556064 #556064 #80FFF9 #FDF6E3
+  # client.focused          #272822 #FFFF00 #050505 #FDF6E3
+  client.focused          #146A8F #146A8F #FA992D #FDF6E3
+  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+  client.placeholder      #000000 #0c0c0c #ffffff #000000
+
+  client.background       #2B2C2B
+
 # ============================ TEST COLORS ===================
 set $fg-color #fdfff1
 set $bg-color #272821
