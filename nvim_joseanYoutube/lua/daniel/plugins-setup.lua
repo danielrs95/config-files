@@ -103,7 +103,8 @@ return packer.startup(function(use)
 
 	-- ThePrimeagean game
 	use("ThePrimeagen/vim-be-good")
-
+	-- Using Packer
+	use("navarasu/onedark.nvim")
 	if packer_bootstrap then
 		require("packer").sync()
 	end

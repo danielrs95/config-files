@@ -1,5 +1,7 @@
 local opt = vim.opt -- for conciseness
 
+opt.guicursor = ""
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true
@@ -20,7 +22,9 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
 
--- appearance
+-- search
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
@@ -39,3 +43,11 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
+
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
+
+vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "80"

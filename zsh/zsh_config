@@ -24,7 +24,7 @@ export ZSH="$HOME/.oh-my-zsh"
 alias config="cd /media/tera/config-files"
 alias cloud="cd /media/tera/0_Trabajo/2_cloudnonic"
 alias ls="ls -la"
-alias sisdep="cd /media/tera/0_Trabajo/0_Proyectos/sisdep/"
+alias sisdep="cd /media/tera/0_Trabajo/0_Proyectos/SISDEP/"
 alias mp="nvim /media/tera/config-files/nvim/lua/daniel/core/keymaps.lua"
 
 # Set name of the theme to load --- if set to "random", it will
