@@ -14,7 +14,7 @@ set $i3barstatuscommand /media/tera/config-files/i3/i3-status
 
 # 1 scren vertical, 1 horizontal
 # exec xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-0 --off --output DP-1 --mode 1920x1080 --pos 0x0 --rotate right --output eDP-1-1 --off --output DP-1-1 --off --output HDMI-1-1 --off --output HDMI-1-2 --off
-exec xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --off --output HDMI-1-0 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-1-0 --off --output DP-1-1 --mode 1920x1080 --pos 0x0 --rotate right
+exec xrandr --output eDP-1-1 --off --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --off --output HDMI-0 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-1-0 --off --output DP-1 --mode 1920x1080 --pos 0x0 --rotate right
 
 
 # 2 screens, horizontal
@@ -31,11 +31,11 @@ default_floating_border normal
 hide_edge_borders none
 
 # change borders
-bindsym $mod+u border none
+# bindsym $mod+u border none
 bindsym $mod+y border pixel 5
 bindsym $mod+n border normal
 
-# Font for window titles. Will also be used by the bar unless a different font
+# Font for window titles. Will also be used by the bar unless a different fone
 # is used in the bar {} block below.
 # font xft:URWGothic-Book 11
 font pango:DejaVu Sans Mono, FontAwesome 11
@@ -85,6 +85,12 @@ bindsym  $mod+Ctrl+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@
 
 
 ################################################################################################
+
+
+########### Find in current windows
+
+bindsym $mod+u exec "rofi -show window"
+
 
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
@@ -336,11 +342,13 @@ bindsym $mod+9 exec --no-startup-id i3lock-fancy
 # Autostart applications
 exec --no-startup-id lxpolkit
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+exec --no-startup-id nitrogen --restore; 
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 # exec --no-startup-id xfce4-power-manager
 exec --no-startup-id copyq
+exec --no-startup-id "xset s off"
+exec --no-startup-id "xset -dpms"
 exec --no-startup-id blueman-applet
 # sbxkb Keyboard
 # exec_always --no-startup-id sbxkb

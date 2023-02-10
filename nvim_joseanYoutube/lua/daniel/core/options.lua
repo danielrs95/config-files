@@ -1,6 +1,6 @@
 local opt = vim.opt -- for conciseness
 
-opt.guicursor = ""
+-- opt.guicursor = ""
 
 -- line numbers
 opt.relativenumber = true

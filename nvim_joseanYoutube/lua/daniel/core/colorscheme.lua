@@ -47,3 +47,4 @@ require("onedark").setup({
 	},
 })
 require("onedark").load()
+require("monokai").setup({})
