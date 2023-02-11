@@ -22,7 +22,7 @@ export ZSH="$HOME/.oh-my-zsh"
 #
 # ===== ALISASES =====
 alias config="cd /media/tera/config-files"
-alias cloud="cd /media/tera/0_Trabajo/2_cloudnonic"
+alias finpace="cd /media/tera/0_Trabajo/2_cloudnonic/bitsy-advisor-v2"
 alias ls="ls -la"
 alias sisdep="cd /media/tera/0_Trabajo/0_Proyectos/SISDEP/"
 alias mp="nvim /media/tera/config-files/nvim/lua/daniel/core/keymaps.lua"

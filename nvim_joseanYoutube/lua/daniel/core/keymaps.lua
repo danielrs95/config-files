@@ -13,8 +13,8 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
-keymap.set("n", "j", "jzz")
-keymap.set("n", "k", "kzz")
+-- keymap.set("n", "j", "jzz")
+-- keymap.set("n", "k", "kzz")
 
 -- move selected lines when in visual
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
