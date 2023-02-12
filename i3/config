@@ -225,6 +225,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
+
+assign [class="Google-chrome"] $ws1
 assign [class="Code"] $ws2
 assign [class="discord"] $ws3
 assign [class="Slack"] $ws4
@@ -493,7 +495,7 @@ bindsym $mod+Shift+o mode "$mode_layout"
 set $mode_layout (1)Initial load, (2)Load Display-1, (3)getCurrentLayout
 mode "$mode_layout" {
   # Use the studio layout
-  bindsym 1 exec --no-startup-id media/tera/config-files/.load_layout.sh, mode "default"
+  bindsym 1 exec --no-startup-id /media/tera/config-files/initial_load.sh, mode "default"
   # bindsym 1 exec --no-startup-id ./layout_manager.sh /home/daniel/.config/i3-layout-manager/layouts/layout-TEST1.json, notify-send 'hello', mode "default"
 
   bindsym 2 exec --no-startup-id   /media/tera/config-files/layout_manager.sh /home/daniel/.config/i3-layout-manager/layouts/layout-1_.json, mode "default"
