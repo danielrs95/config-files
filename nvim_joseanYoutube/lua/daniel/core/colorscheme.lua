@@ -48,3 +48,8 @@ require("onedark").setup({
 })
 require("onedark").load()
 require("monokai").setup({})
+-- Lua
+require("github-theme").setup({
+	theme_style = "dark_default",
+	-- other config
+})

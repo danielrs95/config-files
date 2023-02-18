@@ -298,16 +298,17 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
+
+set $Locker i3lock && sleep 1
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -395,19 +396,27 @@ set_from_resource $term_color15    color15
 # !!!!!!!!!!!!! DEFAULT BAR !!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
+# bar {
+# 	# i3bar_command i3bar
+# 	status_command /media/tera/config-files/i3/i3-status.sh
+# 	position bottom
+#   font xft:URWGothic-Book 10
+#
+#   ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# 	tray_output primary
+#   	# tray_output eDP1-1-1
+#
+# 	bindsym button4 nop
+# 	bindsym button5 nop
+# 	strip_workspace_numbers yes
+# }
 bar {
-	# i3bar_command i3bar
-	status_command /media/tera/config-files/i3/i3-status.sh
-	position bottom
-  font xft:URWGothic-Book 10
-
-  ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-	tray_output primary
-  	# tray_output eDP1-1-1
-
-	bindsym button4 nop
-	bindsym button5 nop
-	strip_workspace_numbers yes
+font pango:DejaVuSans, FontAwesome, MesloLGS NF 11
+    status_command /home/daniel/bumblebee-status/bumblebee-status \
+        -m pasink cpu memory battery date time \
+		    -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+        -t greyish-powerline 
+        tray_output primary
 }
 # ============================ TEST COLORS ===================
 set $fg-color #fdfff1

@@ -125,6 +125,12 @@ require("packer").startup(function(use)
 	-- Packer
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
+	use({
+		"folke/which-key.nvim",
+	})
+
+	use({ "projekt0n/github-nvim-theme", tag = "v0.0.7" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

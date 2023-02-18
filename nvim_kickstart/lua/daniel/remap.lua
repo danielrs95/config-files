@@ -45,7 +45,7 @@ vim.g.maplocalleader = " "
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
-vim.o.mouse = ""
+-- vim.o.mouse = ""
 
 -- For moving and sentering the cursor in the middle
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

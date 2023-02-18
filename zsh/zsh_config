@@ -26,6 +26,7 @@ alias finpace="cd /media/tera/0_Trabajo/2_cloudnonic/bitsy-advisor-v2"
 alias ls="ls -la"
 alias sisdep="cd /media/tera/0_Trabajo/0_Proyectos/SISDEP/"
 alias mp="nvim /media/tera/config-files/nvim/lua/daniel/core/keymaps.lua"
+alias notes="cd /media/tera/1_notas/notasEstudio/"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
