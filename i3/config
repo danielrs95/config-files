@@ -413,9 +413,9 @@ set_from_resource $term_color15    color15
 bar {
 font pango:DejaVuSans, FontAwesome, MesloLGS NF 11
     status_command /home/daniel/bumblebee-status/bumblebee-status \
-        -m pasink cpu memory battery date time \
-		    -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-        -t greyish-powerline 
+        -m sensors  pasource pasink network cpu memory battery date time dunstctl \
+		    -p root.path=/ time.format="%H:%M" date.format="%a, %b %d %Y" memory.format="{used}" \
+        -t dracula-powerline 
         tray_output primary
 }
 # ============================ TEST COLORS ===================
