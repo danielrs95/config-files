@@ -91,6 +91,7 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- diffview nvim
 keymap.set("n", "<leader>df", "<cmd>DiffviewOpen<cr>")
+keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>")
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
