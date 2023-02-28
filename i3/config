@@ -55,7 +55,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+x kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Ubuntu Mono:bold:pixelsize=18'
 # bindsym $mod+d exec --no-startup-id dmenu_recency
 
 # launch categorized menu
@@ -183,7 +183,10 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # Test for obsidian
-bindsym $mod+o [class="obsidian"] scratchpad show; move position center
+# Focus obsidian
+
+bindsym $mod+o [class="obsidian"] focus
+# bindsym $mod+o [class="obsidian"] scratchpad show; move position center
 # exec --no-startup-id alacritty --class notes,notes -e obsidian
 
 # Workspace names
@@ -237,6 +240,7 @@ assign [class="Code"] $ws2
 assign [class="discord"] $ws3
 assign [class="Slack"] $ws4
 assign [class="Alacritty"] $ws2
+assign [class="obsidian"] $ws5
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !!!!!!!!!!!!! WORKSPACES MODIFY !!!!!!!!!!
@@ -259,7 +263,9 @@ workspace $ws8 output DP-1-1
 # !!!!!!!!!!! KEYBOARD LAYOUT !!!!!!!!!!
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # Change layout us to es with win+space
-exec --no-startup-id "setxkbmap -model pc105 -layout us,latam -variant ,deadtilde -option grp:win_space_toggle"
+# exec --no-startup-id "setxkbmap -model pc105 -layout us,latam -variant ,deadtilde -option grp:win_space_toggle"
+exec "setxkbmap -layout us,es"
+exec "setxkbmap -option 'grp:win_space_toggle'"
 
 
 # Open specific applications in floating mode
@@ -419,7 +425,7 @@ set_from_resource $term_color15    color15
 bar {
   font pango:DejaVuSans, MesloLGS NF  11
   status_command /home/daniel/bumblebee-status/bumblebee-status \
-    -m sensors  pasource pasink network cpu memory battery date time dunstctl \
+    -m layout sensors  pasource pasink network cpu memory battery date time dunstctl \
 	  -p root.path=/ time.format="%H:%M" date.format="%a, %b %d %Y" memory.format="{used}" \
     -t dracula-powerline 
     tray_output primary

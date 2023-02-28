@@ -1,0 +1,63 @@
+[{"success":true}]
+[{"success":true}]
+[{"success":true}]
+Opening in existing browser session.
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+[{"success":true}]
+[{"success":true}]
+Opening in existing browser session.
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+[{"success":true}]
+[{"success":true}]
+[{"success":true}]
+Discord 0.0.25
+Quitting secondary instance.
+[{"success":true}]
+[{"success":true}]
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+[{"success":true}]
+[{"success":true}]
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+[{"success":true}]
+[{"success":true}]
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+[{"success":true}]
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+[{"success":true}]
+[{"success":true}]
+[{"success":true}]
+Opening in existing browser session.
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+Opening in existing browser session.
+MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
+
+[{"success":true}]
+Discord 0.0.25
+Starting app.
+Starting updater.
+2023-02-26T18:42:46.851Z [Modules] Modules initializing
+2023-02-26T18:42:46.851Z [Modules] Distribution: remote
+2023-02-26T18:42:46.851Z [Modules] Host updates: disabled
+2023-02-26T18:42:46.851Z [Modules] Module updates: enabled
+2023-02-26T18:42:46.852Z [Modules] Module install path: /home/daniel/snap/discord/150/.config/discord/0.0.25/modules
+2023-02-26T18:42:46.852Z [Modules] Module installed file path: /home/daniel/snap/discord/150/.config/discord/0.0.25/modules/installed.json
+2023-02-26T18:42:46.852Z [Modules] Module download path: /home/daniel/snap/discord/150/.config/discord/0.0.25/modules/pending
+2023-02-26T18:42:47.147Z [Modules] No updates to install
+2023-02-26T18:42:47.148Z [Modules] Host is up to date.
+2023-02-26T18:42:47.149Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2023-02-26T18:42:47.409Z [Modules] No module updates available.
+Optional module ./ElectronTestRpc was not included.
+WEIGHT /home/daniel/snap/discord/150/.config/discord/0.0.25/modules/discord_krisp/NC_small_8k.thw
+WEIGHT /home/daniel/snap/discord/150/.config/discord/0.0.25/modules/discord_krisp/NC_small_16k.thw
+WEIGHT /home/daniel/snap/discord/150/.config/discord/0.0.25/modules/discord_krisp/c6.f.s.ced125.thw
+WEIGHT /home/daniel/snap/discord/150/.config/discord/0.0.25/modules/discord_krisp/VAD_weight.thw
+2023-02-26T18:42:50.590Z [Modules] Host is up to date.
+2023-02-26T18:42:50.590Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2023-02-26T18:42:50.595Z [Modules] No module updates available.
