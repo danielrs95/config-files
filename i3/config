@@ -365,6 +365,10 @@ exec --no-startup-id copyq
 exec --no-startup-id "xset s off"
 exec --no-startup-id "xset -dpms"
 exec --no-startup-id blueman-applet
+
+## Start syncthing
+
+exec --no-startup-id syncthing
 # sbxkb Keyboard
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
