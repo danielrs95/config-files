@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Being in workspace 1 open chrome
-nohup google-chrome &
+nohup brave-browser &
 
 # Change to workspace 2 to run the layout for i3
 i3-msg 'workspace 2'
