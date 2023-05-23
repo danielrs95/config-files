@@ -144,11 +144,6 @@ _G.packer_plugins = {
     path = "/home/daniel/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
   },
-  ["lspsaga.nvim"] = {
-    loaded = true,
-    path = "/home/daniel/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
-    url = "https://github.com/glepnir/lspsaga.nvim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/daniel/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -236,6 +231,11 @@ _G.packer_plugins = {
     path = "/home/daniel/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/daniel/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/daniel/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -280,6 +280,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/daniel/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/daniel/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   },
   ["which-key.nvim"] = {
     loaded = true,

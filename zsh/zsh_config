@@ -18,17 +18,25 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH=”$HOME/.cargo/bin:$PATH”
+
+
+# source /media/tera/config-files/initial_load.sh
+
 # export NODE_OPTIONS=--openssl-legacy-provider
 # export FORCE_COLOR=1
 #
 # ===== ALISASES =====
 alias config="cd /media/tera/config-files"
 alias finpace="cd /media/tera/0_Trabajo/2_cloudnonic/bitsy-advisor-v2"
+alias writerly="cd /media/tera/0_Trabajo/2_cloudnonic/writerly-front-end"
+alias outreach="cd /media/tera/0_Trabajo/2_cloudnonic/backlink-audit-frontend"
 alias ls="ls -la"
 alias sisdep="cd /media/tera/0_Trabajo/0_Proyectos/SISDEP/"
 alias mp="nvim /media/tera/config-files/nvim/lua/daniel/core/keymaps.lua"
 alias notes="cd /media/tera/1_notas/notasEstudio/"
-
+alias minimal="cd /media/tera/6_Documents/Minimal\ v4.1.0/Minimal_TypeScript_v4.1.0/Minimal_TypeScript_v4.1.0/cra_TS"
+alias trejos="cd /media/tera/0_Trabajo/1_Freelance/test3/BladexSimToolFrontend"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -150,3 +158,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f "/home/daniel/.ghcup/env" ] && source "/home/daniel/.ghcup/env" # ghcup-env

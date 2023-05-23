@@ -90,8 +90,8 @@ keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git bra
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 -- diffview nvim
-keymap.set("n", "<leader>df", "<cmd>DiffviewOpen<cr>")
-keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>")
+keymap.set("n", "<leader>ddf", "<cmd>DiffviewOpen<cr>")
+keymap.set("n", "<leader>ddc", "<cmd>DiffviewClose<cr>")
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
@@ -106,3 +106,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = highlight_group,
 	pattern = "*",
 })
+
+-- Diagnostic keymaps
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)

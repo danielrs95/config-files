@@ -13,7 +13,7 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
-vim.cmd([[ 
+vim.cmd([[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
@@ -91,7 +91,7 @@ require("packer").startup(function(use)
 		},
 	})
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+	-- use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
@@ -108,6 +108,9 @@ require("packer").startup(function(use)
 		end,
 	})
 
+	-- Test to better IDE with rust
+	use("simrat39/rust-tools.nvim")
+
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
@@ -121,6 +124,8 @@ require("packer").startup(function(use)
 	use("navarasu/onedark.nvim")
 
 	use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
+
+	use("mg979/vim-visual-multi")
 
 	-- Packer
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
@@ -140,3 +145,16 @@ require("indent_blankline").setup({
 	char = "┊",
 	show_trailing_blankline_indent = false,
 })
+
+-- local rt = require("rust-tools")
+--
+-- rt.setup({
+-- 	server = {
+-- 		on_attach = function(_, bufnr)
+-- 			-- Hover actions
+-- 			vim.keymap.set("n", "<Leader>b", rt.hover_actions.hover_actions, { buffer = bufnr })
+-- 			-- Code action groups
+-- 			vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+-- 		end,
+-- 	},
+-- })
