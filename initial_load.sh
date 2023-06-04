@@ -14,6 +14,7 @@ fi
 nohup alacritty &
 nohup alacritty &
 nohup alacritty &
+nohup code &
 nohup discord &
 nohup slack &
 nohup obsidian &
