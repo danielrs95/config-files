@@ -8,21 +8,18 @@ set $i3barstatuscommand /media/tera/config-files/i3/i3-status
 
 # Screens config
 # exec xrandr --setprovideroutputsource modesetting NVIDIA-0
-
 # 1 screen
 # exec xrandr --output eDP-1-1 --mode 1920x1080 --pos 3840x0 --rotate normal
-
 # 1 scren vertical, 1 horizontal
 # exec xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-0 --off --output DP-1 --mode 1920x1080 --pos 0x0 --rotate right --output eDP-1-1 --off --output DP-1-1 --off --output HDMI-1-1 --off --output HDMI-1-2 --off
 # exec xrandr --output eDP-1-1 --off --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --off --output HDMI-1-0 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-1-0 --off --output DP-1-1 --mode 1920x1080 --pos 0x0 --rotate right
-
 # exec xrandr --output HDMI-1-1 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-0 --off --output DP-1-1 --mode 1920x1080 --pos 0x0 --rotate right --output eDP-1-1 --off --output DP-1-1 --off --output HDMI-1-1 --off --output HDMI-1-2 --off
+exec xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --off --output HDMI-1-0 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-1-0 --off --output DP-1-1 --mode 1920x1080 --pos 0x0 --rotate right
 
 # 2 screens, horizontal
 #exec xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-0 --off --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1-1 --off --output DP-1-1 --off --output HDMI-1-1 --off --output HDMI-1-2 --off
 
-exec --no-startup-id /media/tera/config-files/monitors.sh
-exec --no-startup-id /media/tera/config-files/initial_load.sh
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -51,7 +48,7 @@ bindsym $mod+n border normal
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 # bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
@@ -206,6 +203,10 @@ set $ws7 7
 set $ws8 8
 
 # switch to workspace
+bindsym $mod+m exec --no-startup-id sh -c 'i3-msg workspace $(echo "" | rofi -dmenu -p "go to workspace:")'
+bindsym $mod+Shift+m exec --no-startup-id sh -c 'i3-msg move container to workspace $(echo "" | rofi -dmenu -p "move to workspace:")'
+
+
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -236,13 +237,24 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
 
-# assign [class="Brave-browser"] $ws1
+exec --no-startup-id /media/tera/config-files/monitors.sh
+
+# Open brave before loading layout
+# exec --no-startup-id brave-browser
+# exec --no-startup-id "i3-msg 'workspace 2'"
+exec --no-startup-id /media/tera/config-files/initial_load.sh
+
+exec --no-startup-id kitty
+exec --no-startup-id brave-browser
+exec --no-startup-id discord
+exec --no-startup-id slack
+exec --no-startup-id obsidian
+exec --no-startup-id code
+
 assign [class="Code"] $ws2
 assign [class="discord"] $ws3
 assign [class="Slack"] $ws4
-assign [class="Alacritty"] $ws2
 assign [class="obsidian"] $ws5
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -258,8 +270,8 @@ workspace $ws5 output HDMI-0
 
 # WS 4-6 on second display
 workspace $ws6 output DP-1-1
-workspace $ws7 output DP-1-1
-workspace $ws8 output DP-1-1
+# workspace $ws7 output DP-1-1
+# workspace $ws8 output DP-1-1
 
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -362,19 +374,14 @@ bindsym $mod+9 exec --no-startup-id i3lock-fancy
 
 # Autostart applications
 exec --no-startup-id lxpolkit
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore;
-#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
-# exec --no-startup-id xfce4-power-manager
 exec --no-startup-id copyq
 exec --no-startup-id "xset s off"
 exec --no-startup-id "xset -dpms"
 exec --no-startup-id blueman-applet
-
-## Start syncthing
-
 exec --no-startup-id syncthing
+
 # sbxkb Keyboard
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
@@ -433,7 +440,7 @@ set_from_resource $term_color15    color15
 # 	strip_workspace_numbers yes
 # }
 bar {
-  font pango:DejaVuSans, MesloLGS NF  11
+  font pango:DejaVuSans, MesloLGS NF  12
   status_command /home/daniel/bumblebee-status/bumblebee-status \
     -m layout sensors  pasource pasink network cpu memory battery date time dunstctl \
 	  -p root.path=/ time.format="%H:%M" date.format="%a, %b %d %Y" memory.format="{used}" pasink.showdevicename=true pasink.bluez_sink.14_3F_A6_34_4C_CE.a2dp_sink=🎧 pasink.alsa_output.pci-0000_00_1f.3.analog-stereo=💻 pasink.bluez_sink.60_AB_D2_2A_E5_C7.a2dp_sink=🔊 \
@@ -453,10 +460,8 @@ set $unfocused-color #181915
 
 # class                     border  	       backgr. 	        text    	      indicator 	      child_border
 client.focused          	#2F343A           #900000	          #FFFFFF	        #900000	          #900000
-#client.focused          	#2F343A           #002C8F	          #FAAF00	        #900000	          #900000
 client.focused_inactive   #272821		        #5F676A	          #FFFFFF	        #484E50	          #5F676A
 client.unfocused          #272821		        #5F676A	          #FFFFFF	        #484E50	          #5F676A
-#client.unfocused         unfocused-color   $unfocused-color	$D1D1D1	        $unfocused-color  $bg-color
 client.urgent         		$red-color		    $bg-color	        $red-color	    $red-color        $red-color
 client.placeholder        $bg-color		      $bg-color	        $yellow-color	  $bg-color	        $bg-color
 client.background       	$fg-color

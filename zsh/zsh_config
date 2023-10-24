@@ -26,6 +26,7 @@ export PATH=”$HOME/.cargo/bin:$PATH”
 # export NODE_OPTIONS=--openssl-legacy-provider
 # export FORCE_COLOR=1
 #
+
 # ===== ALISASES =====
 alias config="cd /media/tera/config-files"
 alias finpace="cd /media/tera/0_Trabajo/2_cloudnonic/bitsy-advisor-v2"
@@ -37,6 +38,11 @@ alias mp="nvim /media/tera/config-files/nvim/lua/daniel/core/keymaps.lua"
 alias notes="cd /media/tera/1_notas/notasEstudio/"
 alias minimal="cd /media/tera/6_Documents/Minimal\ v4.1.0/Minimal_TypeScript_v4.1.0/Minimal_TypeScript_v4.1.0/cra_TS"
 alias trejos="cd /media/tera/0_Trabajo/1_Freelance/test3/BladexSimToolFrontend"
+alias ekom="cd /media/tera/0_Trabajo/2_cloudnonic/Ekom_AI_Frontend"
+alias anenta="cd /media/tera/0_Trabajo/3_anenta/anenta " 
+alias study="cd /media/tera/2_estudio/ruby/ruby-exercises"
+alias ewe-front="cd /media/tera/0_Trabajo/2_cloudnonic/ewe-gktkcss"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -160,3 +166,22 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f "/home/daniel/.ghcup/env" ] && source "/home/daniel/.ghcup/env" # ghcup-env
+. "$HOME/.asdf/asdf.sh"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+# source <(ng completion script)
+alias lg='lazygit'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/daniel/.npm/_npx/cdc08ded3a22d652/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/daniel/.npm/_npx/cdc08ded3a22d652/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/daniel/.npm/_npx/cdc08ded3a22d652/node_modules/tabtab/.completions/sls.zsh ]] && . /home/daniel/.npm/_npx/cdc08ded3a22d652/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /home/daniel/.npm/_npx/cdc08ded3a22d652/node_modules/tabtab/.completions/slss.zsh ]] && . /home/daniel/.npm/_npx/cdc08ded3a22d652/node_modules/tabtab/.completions/slss.zsh
